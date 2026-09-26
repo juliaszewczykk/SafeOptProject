@@ -1,11 +1,22 @@
+import os
+import sys
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import torch
 import numpy as np
-from pacsbo.pacsbo_main import compute_X_plot
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+if script_dir not in sys.path:
+    sys.path.insert(0, script_dir)
+
+try:
+    from pacsbo.pacsbo_main import compute_X_plot
+except ImportError:
+    from pacsbo_main import compute_X_plot
 # import tikzplotlib
 import dill
+
 
 
 def plot_2D_mean(cube_dict, agent_number, save=False):

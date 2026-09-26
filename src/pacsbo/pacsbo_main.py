@@ -21,7 +21,14 @@ from scipy.special import comb
 # from plot import plot_1D, plot_2D_contour, plot_1D_SafeOpt_with_sets, plot_gym, plot_gym_together
 import sys
 import os
-from custom_kernels import Matern12_RBF_WeightedSumKernel
+try:
+    from .custom_kernels import Matern12_RBF_WeightedSumKernel
+except ImportError:
+    try:
+        from custom_kernels import Matern12_RBF_WeightedSumKernel
+    except ImportError:
+        from pacsbo.custom_kernels import Matern12_RBF_WeightedSumKernel
+
 # sys.path.insert(1,  './vision-based-furuta-pendulum-master')
 # from gym_brt.envs import QubeBalanceEnv, QubeSwingupEnv
 # from gym_brt.control.control import QubeHoldControl, QubeFlipUpControl

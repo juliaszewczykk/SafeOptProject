@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from matplotlib import pyplot as plt
 from IPython import embed as IPS
@@ -292,7 +293,11 @@ if __name__ == '__main__':
     # Draw the road
     road, = ax.plot([np.min(positions)-10, np.max(positions) + 10], [0, 0], "k-", linewidth=2)
 
-    vehicle_img = mpimg.imread("truck.png")  # PNG with transparent background recommended
+    truck_path = os.path.join(os.path.dirname(__file__), "truck.png")
+    if os.path.exists(truck_path):
+        vehicle_img = mpimg.imread(truck_path)  # PNG with transparent background recommended
+    elif os.path.exists("truck.png"):
+        vehicle_img = mpimg.imread("truck.png")
     # x = 200  # Arbitrary position along the x-axis
     # # ax.set_ylim(-10, 10)
     # test_marker = ax.imshow(vehicle_img, extent=(x - 50, x + 50, -50, 50), zorder=10)

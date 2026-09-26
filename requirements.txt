@@ -1,0 +1,19 @@
+# Core Deep Learning & Gaussian Process libraries
+torch>=2.0.0
+gpytorch>=1.11
+linear-operator>=0.5.1
+
+# Numerical Computing & Scientific Packages
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Plotting & Visualization
+matplotlib>=3.7.0
+pillow>=9.5.0
+
+# Utilities & Serialization
+tqdm>=4.65.0
+dill>=0.3.6
+
+# Optional / Interactive Development
+ipython>=8.12.0

@@ -81,7 +81,11 @@ def run_runtime_probe(
 ):
     try:
         import torch
-        from pacsbo_main import PACSBO, GPRegressionModel, compute_X_plot
+        try:
+            from pacsbo.pacsbo_main import PACSBO, GPRegressionModel, compute_X_plot
+        except ModuleNotFoundError:
+            from pacsbo_main import PACSBO, GPRegressionModel, compute_X_plot
+
     except ModuleNotFoundError as exc:
         return {
             "num_agents": num_agents,
